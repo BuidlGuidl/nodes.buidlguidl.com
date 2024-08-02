@@ -122,7 +122,7 @@ export const Header = () => {
             <Image alt="LaunchPod logo" className="cursor-pointer" fill src="/launchpod-logo.svg" />
           </div>
           <div className="flex flex-col">
-            <span className="font-bold leading-tight">Workshops</span>
+            <span className="font-bold leading-tight">Nodes</span>
             <span className="text-xs">BuidlGuidl Cohort</span>
           </div>
         </Link>
