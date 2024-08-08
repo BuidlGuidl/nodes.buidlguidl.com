@@ -119,7 +119,7 @@ export const Header = () => {
         </div>
         <Link href="/" passHref className="hidden lg:flex items-center gap-2 ml-4 mr-6 shrink-0">
           <div className="flex relative w-10 h-10">
-            <Image alt="LaunchPod logo" className="cursor-pointer" fill src="/launchpod-logo.svg" />
+            <Image alt="Nodes Logo" className="cursor-pointer" fill src="/android-chrome-192x192.png" />
           </div>
           <div className="flex flex-col">
             <span className="font-bold leading-tight">Nodes</span>
