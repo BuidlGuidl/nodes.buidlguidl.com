@@ -14,7 +14,7 @@ const baseUrl = "https://buidlguidlpod.vercel.app/"; //Need to manually put in t
 export const MetaHeader = ({
   title = "BuidlGuidl Nodes",
   description = "Funding BuidlGuidl members for creating and maintaining the BuidlGuidl Node Program",
-  image = "Nodes-unfurl.png",
+  image = "/Nodes-unfurl.png",
   twitterCard = "summary_large_image",
   children,
 }: MetaHeaderProps) => {
