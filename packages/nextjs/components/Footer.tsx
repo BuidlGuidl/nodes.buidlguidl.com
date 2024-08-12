@@ -67,7 +67,7 @@ export const Footer = () => {
               <span>·</span>
               <a
                 className="flex justify-center items-center gap-1"
-                href="https://github.com/BuidlGuidl/LaunchPod-Deploy"
+                href="https://github.com/BuidlGuidl/nodes.buidlguidl.com"
                 target="_blank"
                 rel="noreferrer"
               >
