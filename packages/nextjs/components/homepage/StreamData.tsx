@@ -160,7 +160,7 @@ const StreamData = ({ creatorPage }: { creatorPage: boolean }) => {
             Contract Data
           </h1>
           <div className="relative w-10 h-10">
-            {/* <Image alt="OP Logo" className="cursor-pointer" fill src="/OPLogo.png" /> */}
+            <img src="https://icons.network/id/1" />
           </div>
         </div>
         <div className="px-4 pt-4">
