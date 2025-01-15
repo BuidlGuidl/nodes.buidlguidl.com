@@ -20,14 +20,14 @@ const ContractEvents = () => {
 
   const withdraw = useScaffoldEventHistory({
     contractName: "YourContract",
-    eventName: "Withdrawn",
+    eventName: "Withdraw",
     fromBlock: BigInt(Number(process.env.NEXT_PUBLIC_DEPLOY_BLOCK) || 0),
     blockData: true,
   });
 
   const addBuilder = useScaffoldEventHistory({
     contractName: "YourContract",
-    eventName: "CreatorAdded",
+    eventName: "AddBuilder",
     fromBlock: BigInt(Number(process.env.NEXT_PUBLIC_DEPLOY_BLOCK) || 0),
 
     blockData: true,
@@ -35,7 +35,7 @@ const ContractEvents = () => {
 
   const updateBuilder = useScaffoldEventHistory({
     contractName: "YourContract",
-    eventName: "CreatorUpdated",
+    eventName: "UpdateBuilder",
     fromBlock: BigInt(Number(process.env.NEXT_PUBLIC_DEPLOY_BLOCK) || 0),
 
     blockData: true,

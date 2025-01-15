@@ -27,7 +27,7 @@ export const HackersInfoDisplay: React.FC<{ creatorData: CreatorInfo; creatorAdd
 
   const withdraw = useScaffoldEventHistory({
     contractName: "YourContract",
-    eventName: "Withdrawn",
+    eventName: "Withdraw",
     fromBlock: BigInt(Number(process.env.NEXT_PUBLIC_DEPLOY_BLOCK) || 0),
     blockData: true,
   });

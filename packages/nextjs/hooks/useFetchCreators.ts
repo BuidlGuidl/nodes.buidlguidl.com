@@ -13,7 +13,7 @@ export const useFetchCreators = () => {
     error: errorReadingCreators,
   } = useScaffoldEventHistory({
     contractName: "YourContract",
-    eventName: "CreatorAdded",
+    eventName: "AddBuilder",
     fromBlock: BigInt(Number(process.env.NEXT_PUBLIC_DEPLOY_BLOCK) || 0),
     blockData: true,
   });
@@ -22,7 +22,7 @@ export const useFetchCreators = () => {
 
   useScaffoldEventSubscriber({
     contractName: "YourContract",
-    eventName: "CreatorAdded",
+    eventName: "AddBuilder",
     listener: logs => {
       logs.map(log => {
         const creator = log.args[0];

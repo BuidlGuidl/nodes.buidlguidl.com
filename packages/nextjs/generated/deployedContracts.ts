@@ -141,6 +141,25 @@ const contracts = {
                   name: "to",
                   type: "address",
                 },
+                {
+                  indexed: false,
+                  internalType: "uint256",
+                  name: "amount",
+                  type: "uint256",
+                },
+              ],
+              name: "AddBuilder",
+              type: "event",
+            },
+            {
+              anonymous: false,
+              inputs: [
+                {
+                  indexed: true,
+                  internalType: "address",
+                  name: "to",
+                  type: "address",
+                },
               ],
               name: "AdminAdded",
               type: "event",
@@ -169,57 +188,6 @@ const contracts = {
                 },
               ],
               name: "AgreementDrained",
-              type: "event",
-            },
-            {
-              anonymous: false,
-              inputs: [
-                {
-                  indexed: true,
-                  internalType: "address",
-                  name: "to",
-                  type: "address",
-                },
-                {
-                  indexed: false,
-                  internalType: "uint256",
-                  name: "amount",
-                  type: "uint256",
-                },
-              ],
-              name: "CreatorAdded",
-              type: "event",
-            },
-            {
-              anonymous: false,
-              inputs: [
-                {
-                  indexed: true,
-                  internalType: "address",
-                  name: "to",
-                  type: "address",
-                },
-              ],
-              name: "CreatorRemoved",
-              type: "event",
-            },
-            {
-              anonymous: false,
-              inputs: [
-                {
-                  indexed: true,
-                  internalType: "address",
-                  name: "to",
-                  type: "address",
-                },
-                {
-                  indexed: false,
-                  internalType: "uint256",
-                  name: "amount",
-                  type: "uint256",
-                },
-              ],
-              name: "CreatorUpdated",
               type: "event",
             },
             {
@@ -369,6 +337,25 @@ const contracts = {
                   name: "amount",
                   type: "uint256",
                 },
+              ],
+              name: "UpdateBuilder",
+              type: "event",
+            },
+            {
+              anonymous: false,
+              inputs: [
+                {
+                  indexed: true,
+                  internalType: "address",
+                  name: "to",
+                  type: "address",
+                },
+                {
+                  indexed: false,
+                  internalType: "uint256",
+                  name: "amount",
+                  type: "uint256",
+                },
                 {
                   indexed: false,
                   internalType: "string",
@@ -376,7 +363,7 @@ const contracts = {
                   type: "string",
                 },
               ],
-              name: "Withdrawn",
+              name: "Withdraw",
               type: "event",
             },
             {
