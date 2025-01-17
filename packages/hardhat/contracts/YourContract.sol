@@ -190,11 +190,15 @@ contract YourContract is AccessControl, ReentrancyGuard {
 		address _creator
 	) public view isFlowActive(_creator) returns (uint256) {
 		CreatorFlowInfo memory creatorFlow = flowingCreators[_creator];
-		uint256 timePassed = block.timestamp - creatorFlow.last;
+		uint256 timePassed;
+		unchecked {
+			timePassed = block.timestamp - creatorFlow.last;
+		}
 
 		if (timePassed < CYCLE) {
-			uint256 availableAmount = (timePassed * creatorFlow.cap) / CYCLE;
-			return availableAmount;
+			unchecked {
+				return (timePassed * creatorFlow.cap) / CYCLE;
+			}
 		} else {
 			return creatorFlow.cap;
 		}
@@ -223,14 +227,13 @@ contract YourContract is AccessControl, ReentrancyGuard {
 		address[] memory _creators,
 		uint256[] memory _caps
 	) public onlyAdmin {
-		uint256 cLength = _creators.length;
-		if (_creators.length >= MAXCREATORS) revert MaxCreatorsReached();
-		if (cLength != _caps.length) revert LengthsMismatch();
-		for (uint256 i = 0; i < cLength; ) {
+		uint256 creatorsLength = _creators.length;
+		if (creatorsLength >= MAXCREATORS) revert MaxCreatorsReached();
+		if (creatorsLength != _caps.length) revert LengthsMismatch();
+		
+		for (uint256 i; i < creatorsLength;) {
 			addCreatorFlow(payable(_creators[i]), _caps[i]);
-			unchecked {
-				++i;
-			}
+			unchecked { ++i; }
 		}
 	}
 
@@ -272,8 +275,9 @@ contract YourContract is AccessControl, ReentrancyGuard {
 	function removeCreatorFlow(
 		address _creator
 	) public onlyAdmin isFlowActive(_creator) {
+		uint256 lastIndex = activeCreators.length - 1;
 		uint256 creatorIndexToRemove = creatorIndex[_creator];
-		address lastCreator = activeCreators[activeCreators.length - 1];
+		address lastCreator = activeCreators[lastIndex];
 
 		if (_creator != lastCreator) {
 			activeCreators[creatorIndexToRemove] = lastCreator;
@@ -281,7 +285,6 @@ contract YourContract is AccessControl, ReentrancyGuard {
 		}
 
 		activeCreators.pop();
-
 		delete flowingCreators[_creator];
 		delete creatorIndex[_creator];
 
@@ -296,13 +299,18 @@ contract YourContract is AccessControl, ReentrancyGuard {
 			revert InsufficientInFlow(_amount, totalAmountCanWithdraw);
 		}
 
+		// Calculate timestamp updates before transfer
 		uint256 creatorflowLast = creatorFlow.last;
 		uint256 timestamp = block.timestamp;
 		uint256 cappedLast = timestamp - CYCLE;
 		if (creatorflowLast < cappedLast) {
 			creatorflowLast = cappedLast;
 		}
+		
+		// Update state before transfer
+		creatorFlow.last = creatorflowLast + (((timestamp - creatorflowLast) * _amount) / totalAmountCanWithdraw);
 
+		// Handle transfers after state updates
 		if (!isERC20) {
 			uint256 contractFunds = address(this).balance;
 			if (contractFunds < _amount) {
@@ -313,8 +321,6 @@ contract YourContract is AccessControl, ReentrancyGuard {
 		} else {
 			IERC20(tokenAddress).safeTransfer(msg.sender, _amount);
 		}
-
-		creatorFlow.last = creatorflowLast + (((timestamp - creatorflowLast) * _amount) / totalAmountCanWithdraw);
 
 		emit Withdraw(msg.sender, _amount, _reason);
 	}
