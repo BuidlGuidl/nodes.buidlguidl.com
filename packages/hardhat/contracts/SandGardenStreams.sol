@@ -3,16 +3,6 @@ pragma solidity >=0.8.0 <0.9.0;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-//  ___     ___              ___     ___    _  _     ___              ___     ___     ___     ___     ___    _  _
-// | _ )   / __|     o O O  / __|   /   \  | \| |   |   \     o O O  / __|   /   \   | _ \   |   \   | __|  | \| |
-// | _ \  | (_ |    o       \__ \   | - |  | .` |   | |) |   o      | (_ |   | - |   |   /   | |) |  | _|   | .` |
-// |___/   \___|   TS__[O]  |___/   |_|_|  |_|\_|   |___/   TS__[O]  \___|   |_|_|   |_|_\   |___/   |___|  |_|\_|
-// _|"""""|_|"""""| {======|_|"""""|_|"""""|_|"""""|_|"""""| {======|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
-// "`-0-0-'"`-0-0-'./o--000'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'./o--000'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'
-//
-// BuidlGuidl Mercs
-
-
 contract SandGardenStreams is Ownable {
 
     struct BuilderStreamInfo {
@@ -27,7 +17,16 @@ contract SandGardenStreams is Ownable {
     event UpdateBuilder(address indexed to, uint256 amount);
 
     constructor() { 
-        _transferOwnership(0x34aA3F359A9D614239015126635CE7732c18fDF3);
+        emit Withdraw(0x38c772B96D73733F425746bd368B4B4435A37967, 1500000000000000000, "Working on BG RPC redesign to use micro service design so that it doesn't turn into spaghetti (committing as user Ubuntu). https://github.com/austintgriffith/geth-node-ssl-proxy/tree/bg-rpc-proxy https://github.com/sfaber34/bg-rpc-logs");
+        emit Withdraw(0x38c772B96D73733F425746bd368B4B4435A37967, 1500000000000000000, "BG Client maintenance (https://github.com/BuidlGuidl/buidlguidl-client/tree/staging). BG RPC cleanup, restructure, added a dashboard - preparing to improve RPC functionality (https://github.com/austintgriffith/geth-node-ssl-proxy)");
+        emit Withdraw(0x38c772B96D73733F425746bd368B4B4435A37967, 1498400000000000000, "Devcon 7. Maintenance for BG Client (https://github.com/BuidlGuidl/buidlguidl-client). Restructuring RPC code (https://github.com/austintgriffith/geth-node-ssl-proxy/tree/bg-rpc-restructure)");
+        emit Withdraw(0x38c772B96D73733F425746bd368B4B4435A37967, 1500000000000000000, "Improving the reliability and restructuring RPC code (https://github.com/austintgriffith/geth-node-ssl-proxy/tree/bg-rpc-restructure). Modifications to BG client to improve rpc logic and added client version control (https://github.com/BuidlGuidl/buidlguidl-client/tree/staging). Hardware work to get ready for devcon.");
+        emit Withdraw(0x38c772B96D73733F425746bd368B4B4435A37967, 1000000000000000000, "Improvements on the BG client repo (https://github.com/BuidlGuidl/buidlguidl-client). Backend work to make p2p connections between BG clients.");
+        emit Withdraw(0x38c772B96D73733F425746bd368B4B4435A37967, 500000000000000000, "Continued work on BG Client improvements https://github.com/BuidlGuidl/buidlguidl-client");
+        emit Withdraw(0x38c772B96D73733F425746bd368B4B4435A37967, 500000000000000000, "More nodes work to get the first alpha shipped https://github.com/BuidlGuidl/buidlguidl-client/releases/tag/v0.2.0-alpha");
+        emit Withdraw(0x38c772B96D73733F425746bd368B4B4435A37967, 1000000000000000000, "Continued work on https://github.com/BuidlGuidl/buidlguidl-client and babysitting nodes");
+
+        _transferOwnership(0x11E91FB4793047a68dFff29158387229eA313ffE);
     }
 
     struct BuilderData {
