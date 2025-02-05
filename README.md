@@ -1,3 +1,3 @@
-# 🦸‍♀️ BuidlGuidl Mercs
+# 🛰️ BuidlGuidl Nodes
 
-Funding BuidlGuidl Mercs with oETH streams for quietly having important impact on Ethereum. 
+Funding BuidlGuidl Nodes Cohort members for creating and maintaining the BuidlGuidl Nodes client.
